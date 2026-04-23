@@ -36,7 +36,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 src={product.imageUrl}
                 alt={product.title}
                 fill
-                className="object-cover"
+                className="object-cover object-top transition-transform duration-400"
               />
             </motion.div>
 

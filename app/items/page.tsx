@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useState, useMemo, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Search, SlidersHorizontal, X, RotateCcw } from 'lucide-react';
-import { useProducts } from '@/hooks/useProducts';
-import type { ProductFilters } from '@/types';
+import { fetchProducts } from '@/lib/productService';
+import type { ProductFilters, Product } from '@/types';
 import { ProductCard } from '@/components/products/ProductCard';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -36,15 +36,32 @@ const categories = [
 ];
 
 export default function ItemsPage() {
-  const { products, loading, refreshProducts } = useProducts();
   const router = useRouter();
-  const pathname = usePathname();
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const loadProducts = async () => {
+    setLoading(true);
+    try {
+      const data = await fetchProducts();
+      setProducts(data);
+    } catch (error) {
+      console.error('Failed to fetch products:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
+
   const [filters, setFilters] = useState<ProductFilters>({
     search: '',
     category: '',
     minPrice: 0,
-    maxPrice: 500,
+    maxPrice: 10000,
     minRating: 0,
   });
 
@@ -71,7 +88,7 @@ export default function ItemsPage() {
       search: '',
       category: '',
       minPrice: 0,
-      maxPrice: 500,
+      maxPrice: 10000,
       minRating: 0,
     });
   };
@@ -101,7 +118,7 @@ export default function ItemsPage() {
               {filteredProducts.length} products found
             </p>
             <button
-              onClick={() => refreshProducts()}
+              onClick={() => loadProducts()}
               className="p-2 hover:bg-gray-100 rounded-lg"
               title="Refresh"
             >

@@ -74,7 +74,7 @@ export default function ProductDetailPage() {
               alt={product.title}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+              className="object-cover object-top transition-transform duration-400"
               priority
             />
           </div>
