@@ -1,5 +1,9 @@
 # 🛍️ Odyssey — Premium E-Commerce Platform
 
+> Watch the full walkthrough of Odyssey — architecture, UI, and features.
+
+[![Watch on YouTube](https://www.youtube.com/watch?v=Ka0TNr2RRYA)](https://www.youtube.com/watch?v=Ka0TNr2RRYA)
+
 > **Discover. Desire. Own.**
 > A modern, curated lifestyle e-commerce experience built with performance, clean UI, and scalable architecture in mind.
 
