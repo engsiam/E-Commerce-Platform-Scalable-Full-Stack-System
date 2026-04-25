@@ -2,7 +2,7 @@
 
 > Watch the full walkthrough of Odyssey — architecture, UI, and features.
 
-[![Watch on YouTube](https://www.youtube.com/watch?v=Ka0TNr2RRYA)](https://www.youtube.com/watch?v=Ka0TNr2RRYA)
+[![Watch on YouTube](https://i.ibb.co.com/ks46XNWG/odyssey-premium-e-commerce-platform-vercel-app-2026-04-25-13-12-59.png)](https://www.youtube.com/watch?v=Ka0TNr2RRYA)
 
 > **Discover. Desire. Own.**
 > A modern, curated lifestyle e-commerce experience built with performance, clean UI, and scalable architecture in mind.
